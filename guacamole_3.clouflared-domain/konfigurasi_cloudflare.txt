@@ -1,0 +1,59 @@
+KONFIGURASI CLOUDFLARE & DOMAIN AGAR GUACAMOLE BISA AKSES DARI LUAR
+
+	>. DOMAIN ex: ngelab-unix.biz.id ( frontzone19@gmail.com )
+	>. CLOUDFLARE : freeplan	( monitoring.mrtg02@gmail.com )
+
+    1. Install Cloudflare di lxd guacamole
+    wget -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64.deb -O cloudflared.deb 
+    sudo apt install -y ./cloudflared.deb
+
+    2. Login Cloudflare dari host & buat tunnel
+
+    login (akan membuka URL di browser; ikuti instruksi)
+    sudo cloudflared tunnel login
+    
+    Login ke Cloudflare → Add Site → masukkan domain ( ngelab-unix.biz.id ) → pilih Free Plan.
+    
+    Buat tunnel baru
+    sudo cloudflared tunnel create guacamole-tunnel
+
+    catat "TUNNEL ID" atau nama credential file (cloudflared akan menyimpan file JSON di ~/.cloudflared)
+
+    3. Konfigurasi tunel & isi seperti ini
+    cloudflared tunnel route dns guacamole-tunnel guaca.ngelab-unix.biz.id
+ 
+    nano /root/.cloudflared/config.yml
+
+    tunnel: guacamole-tunnel
+    credentials-file: /root/.cloudflared/b658d18d-022b-414a-afaa-b58b89e461bc.json
+
+    ingress:
+     - hostname: guaca.ngelab-unix.biz.id
+       service: http://127.0.0.1:8080
+     - service: http_status:404
+
+    4. Jalankan Service & Setting agar otomatis running ketika reboot
+    cloudflared tunnel run guacamole-tunnel
+
+    #. Buat Service Systemd
+    nano /etc/systemd/system/cloudflared.service
+
+    [Unit]
+    Description=Cloudflare Tunnel
+    After=network.target
+
+    [Service]
+    Type=simple
+    User=root
+    ExecStart=/usr/local/bin/cloudflared tunnel --config /root/.cloudflared/config.yml run
+    Restart=always
+    RestartSec=5s
+
+    [Install]
+    WantedBy=multi-user.target
+
+    #. Reload & Enable Service
+    systemctl daemon-reexec
+    systemctl enable cloudflared
+    systemctl start cloudflared
+    systemctl status cloudflared
