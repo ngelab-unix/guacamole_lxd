@@ -8,7 +8,6 @@
 	Akses web: http://IP:8080/guacamole
 
 	2. Installasi Paket Dasar
-	
 	repo deb11 buat install tomcat9  
 	echo "deb http://deb.debian.org/debian/ bullseye main" > /etc/apt/sources.list.d/bullseye.list 
 
@@ -24,7 +23,6 @@
     libmariadb-java
 
 	3. Install & Jalankan guacd
-	
 	3.1 Unduh & kompilasi guacamole-server 1.6.0
 	cd /usr/src
 	sudo wget https://archive.apache.org/dist/guacamole/1.6.0/source/guacamole-server-1.6.0.tar.gz
@@ -75,7 +73,6 @@
 	sudo systemctl daemon-reload
 
 	5. Deploy Guacamole webapp + Extensions
-
 	5.1 Unduh WAR & extension dari arsip (stabil)
 	cd /tmp
 	wget -O guacamole-1.6.0.war \
