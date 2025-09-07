@@ -18,8 +18,7 @@ Membangun simulasi remote access kantor menggunakan:
 ## 📊 Diagram Topologi
 ![Topologi Jaringan](diagrams/network-topology.png)
 
-## 📷 Screenshot
-# guacamole http 
+## 📷 Screenshot 
 ![Login Page](guacamole_images/guacalabzerotrust.png) ![Login Page](guacamole_images/guacahttps.png)
 ## Catatan
 - Tested on Debian 12 LXD container
