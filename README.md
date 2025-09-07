@@ -35,7 +35,8 @@ Membangun simulasi remote access kantor menggunakan:
    ```
 
 ## 📷 Screenshot
-![Login Page](guacamole_images/guaca-lab.png)
+![Login Page](guacamole_images/guacalab.png)
+
 ## 📌 Catatan
 - Tested on Debian 12 LXD container
 - Bisa diadaptasi untuk production dengan server fisik/vm
