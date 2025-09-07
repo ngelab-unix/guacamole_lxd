@@ -1,9 +1,7 @@
-# guacamole_lxd
-Installation Guacamole LXC Canonical ( https + domain + cloudflared zerotrust )
 
 # Remote Office Access Lab with Apache Guacamole + Cloudflare Tunnel + Domain
 
-## 🎯 Tujuan
+## TUJUAN
 Membangun simulasi remote access kantor menggunakan:
 - **Apache Guacamole + TOTP** untuk akses desktop/server via web
 - **TOTP + Google Authentifikator** sebagai lapisan keamanan kedua dalam proses autentikasi dua langkah (2FA)
@@ -12,7 +10,7 @@ Membangun simulasi remote access kantor menggunakan:
 - **Tomcat** sebagai terminator SSL (opsional)
 - **Canonical/LXD** untuk isolasi environment
 
-## 🗂️ Fitur
+## Fitur
 - Akses remote desktop via web (RDP, SSH, VNC)
 - Integrasi domain dengan Cloudflare
 - Akses aman tanpa IP publik
@@ -23,7 +21,7 @@ Membangun simulasi remote access kantor menggunakan:
 ## 📷 Screenshot
 ![Login Page](guacamole_images/guacalab.png)
 
-## 📌 Catatan
+## Catatan
 - Tested on Debian 12 LXD container
 - Bisa diadaptasi untuk production dengan server fisik/vm
 
