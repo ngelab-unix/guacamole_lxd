@@ -18,12 +18,13 @@ Membangun simulasi remote access kantor menggunakan:
 - Akses aman tanpa IP publik
 
 ## 📊 Diagram Topologi
-![Topologi Jaringan](diagrams/network-topology.png)
+![Topologi Jaringan](guacamole_images/guaca_cloudflaredtopologi.png) 
 
 ## 📷 Tampilan Guacamole  
 ![Login Page](guacamole_images/guacalabzerotrust.png) ![Login Page](guacamole_images/guacahttps.png)
-![Login Page](guacamole_images/guacalabtotp.png)## Catatan![Login Page](guacamole_images/guacalabrdp.png)
+![Login Page](guacamole_images/guacalabtotp.png)![Login Page](guacamole_images/guacalabrdp.png)
 
+## Catatan
 - Tested on Debian 12 LXD Canonical container
 - Bisa diadaptasi untuk production dengan server fisik/vm
 
